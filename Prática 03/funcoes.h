@@ -22,7 +22,7 @@ void trocar(T & a, T & b) {
 	b = c;
 }
 
-//MÁXIMO GERAL
+//Mï¿½XIMO GERAL
 /*********************************************************************************/
 template<class T>
 T maximo(T a, T b) {
@@ -36,10 +36,9 @@ T maximo(T a, T b) {
 	return max;
 }
 
-//MÁXIMO PARA CHAR *
-template<>
-char * maximo(char * a, char * b) {
-	char *max;
+//Mï¿½XIMO PARA CHAR *
+const char * maximo(const char * a, const char * b) {
+	const char *max;
 	if (strcmp(a, b) > 0) {
 		max = b;
 	} else {
@@ -48,7 +47,7 @@ char * maximo(char * a, char * b) {
 	return max;
 }
 
-//MÍNIMO GERAL
+//Mï¿½NIMO GERAL
 /*********************************************************************************/
 template<class T>
 T minimo(T a, T b) {
@@ -62,26 +61,15 @@ T minimo(T a, T b) {
 	return min;
 }
 
-//MÍNIMO PARA CHAR *
-template<>
-char * minimo(char * a, char * b) {
-	char *min;
+//Mï¿½NIMO PARA CHAR *
+const char * minimo(const char * a, const char * b) {
+	const char *min;
 	if (strcmp(a, b) < 0) {
 		min = b;
 	} else {
 		min = a;
 	}
 	return min;
-}
-
-char * maximo(char * a, char * b) {
-	char *max = a;
-	if (strcmp(a, b) > 0) {
-		max = a;
-	} else {
-		max = b;
-	}
-	return max;
 }
 
 /*********************************************************************************/
