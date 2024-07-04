@@ -37,10 +37,10 @@ public:
 	}
 	virtual ~Arranjo() {
 		delete [] items;
-//		cout << "Arranjo destruído!" << endl;
+//		cout << "Arranjo destruï¿½do!" << endl;
 	}
 	virtual T get(int idx) {
-		if (idx > tamanho) {
+		if (idx >= tamanho) {
 			throw IndiceInvalido("Indice Invalido!");
 		} else {
 			return this->items[idx];
@@ -48,7 +48,7 @@ public:
 	}
 
 	virtual void set(int idx, const T & item) {
-		if (idx > tamanho) {
+		if (idx >= tamanho) {
 			throw IndiceInvalido("Indice Invalido!");
 		} else {
 			this->items[idx] = item;
