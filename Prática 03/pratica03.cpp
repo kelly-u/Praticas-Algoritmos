@@ -15,10 +15,9 @@ using namespace funcoes;
 
 int main() {
 
-	cout << "Hello, world!" << endl;
 // int x = 5, y = 10, z = 30;
 // char x = 'A', y = 'B', z = 'C';
-	const char * x = "paralelepípedo", *y = "bola", *z = "sadfasdadssa";
+	const char * x = "paralelepipedo", *y = "bola", *z = "sadfasdadssa";
 	cout << "Antes: x = " << x << " y = " << y << endl;
 	trocar(x, y);
 	cout << "Depois : x = " << x << " y = " << y << endl;
@@ -41,9 +40,10 @@ int main() {
 		arr.exibir();
 
 		Arranjo<float> arr2(5);
-		arr2.set(4, 1.7);
-		arr2.set(5, 1.3);
-		// arr2.set(8, 1.2);
+		arr2.set(3, 1.7);
+		arr2.set(4, 1.3);
+		//arr2.set(5, 1.3);
+	    //arr2.set(8, 1.2);
 		arr2.exibir();
 
 	} catch (IndiceInvalido ii) {
