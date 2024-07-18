@@ -13,45 +13,43 @@ using namespace std;
 
 template<class T> class Lista {
 private:
-	T * items;
-	int capac, tamAtual, temp;
+	T *items;
+	int capac, tamAtual;
 
 public:
 	Lista(int capacidade) {
 		this->capac = capacidade;
 		items = new T[capac];
 		this->tamAtual = 0;
-		this->temp = 0;
 		cout << "Lista criadaaa!" << endl;
 	}
 	~Lista() {
 		delete[] items;
-		cout << "Lista destruÌdaaa!" << endl;
+		cout << "Lista destruÔøΩdaaa!" << endl;
 	}
 
 	/* OK */
-	void adiciona(const T & item) {
+	void adiciona(const T &item) {
 		if (this->tamAtual >= this->capac) {
 			throw "Lista cheia!";
-		} else {
-			items[tamAtual] = item;
-			this->tamAtual++;
 		}
+
+		items[tamAtual] = item;
+		this->tamAtual++;
+
 	}
 
 	/* OK */
 	T pega(int idx) {
 
 		if (idx < 1 || idx > this->capac) {
-			throw "Item inv·lido";
-		}else {
-			idx--;
-			return items[idx];
+			throw "Item invÔøΩlido";
 		}
+		return items[--idx];
 	}
 
 	/* OK */
-	void insere(int idx, const T & item) {
+	void insere(int idx, const T &item) {
 		if (this->tamAtual >= this->capac) {
 			throw "Lista cheia!";
 		}
@@ -65,15 +63,12 @@ public:
 	/* OK */
 	void remove(int idx) {
 		if (idx < 1 || idx > this->tamAtual) {
-			throw "Õndice inv·lido";
-		} else {
-			this->temp = idx--;
-			for (int i = idx; i <= tamAtual; i++) {
-				this->items[i] = items[temp];
-				this->temp++;
-			}
-			this->tamAtual--;
+			throw "√çndice inv√°lido";
 		}
+		for (int i = idx - 1; i <= tamAtual; i++) {
+			this->items[i] = items[i + 1];
+		}
+		this->tamAtual--;
 	}
 
 	/* OK */
