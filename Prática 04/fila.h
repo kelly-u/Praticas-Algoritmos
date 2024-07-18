@@ -27,27 +27,26 @@ public:
 
 	~Fila() {
 		delete [] items;
-		cout << "Fila destruídaaa!" << endl;
+		cout << "Fila destruï¿½daaa!" << endl;
 	}
 
 
 	void enfileira(const T & item) {
-		if (this->taman < this->capac) {
-			this->items[(this->pInicial + this->taman) % this->capac] = item;
-			this->taman++;
-		} else {
+		if (this->taman > this->capac) {
 			throw "Fila cheia!";
 		}
+		this->items[(this->pInicial + this->taman) % this->capac] = item;
+		this->taman++;
 	}
 
 	T desenfileira() {
 		int pIniAntiga = this->pInicial;
-		if (this->taman > 0) {
-			this->pInicial = ((this->pInicial + 1) % this->capac);
-			this->taman --;
-		} else {
+		if (this->taman < 0) {
 			throw "Fila vazia!";
 		}
+
+		this->pInicial = ((this->pInicial + 1) % this->capac);
+		this->taman --;
 		return items[pIniAntiga];
 	}
 
