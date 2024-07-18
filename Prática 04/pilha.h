@@ -17,50 +17,43 @@ using namespace std;
 template <class T> class Pilha {
 private:
 	int capac,
-		topo,
-		taman;
+		tam;
 	T * items;
 
 	public: Pilha(int capacidade) {
 		this->capac = capacidade;
 		items = new T[capac];
-		this->topo = 0;
-		this->taman = 0;
+		this->tam = 0;
 		cout << "Pilha criadaaa!" << endl;
 	}
 
 	~Pilha() {
 		delete [] items;
-		cout << "Pilha destruídaaa!" << endl;
+		cout << "Pilha destruï¿½daaa!" << endl;
 	}
 
 	void empilha(T item) {
-		if(topo < capac){
-			this->items[topo] = item;
-			topo ++;
-			this->taman++;
-		}
-		else{
+		if(tam > capac){
 			throw "Estouro de Pilha!";
 		}
+			this->items[tam] = item;
+			this->tam++;
 	}
 
 	T desempilha() {
-		if(topo > 0){
-			topo --;
-			this->taman--;
-		}
-		else{
+		if(tam < 0){
 			throw "Pilha vazia!";
 		}
-		return items[topo];
+		this->tam--;
+		return items[tam];
 	}
 
 	int tamanho() {
-		return this->taman;
+		return this->tam;
 	}
 
 };
+
 
 #endif /* PILHA_H_ */
 
